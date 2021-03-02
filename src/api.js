@@ -12,7 +12,7 @@ const http = async (path, method, body) => {
     });
     if (res.ok) {
       const body = await res.json();
-      return { body };
+      return body;
     } else {
       // TODO
     }
@@ -21,6 +21,6 @@ const http = async (path, method, body) => {
   }
 };
 
-export const getCompanyValues = () => http('/company-values', 'GET');
+export const getCompanyValues = language => http(`/company-values?language=${language}`, 'GET');
 
 export const getOffices = () => http('/offices', 'GET');

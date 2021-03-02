@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "GigMedia",
+    title: 'GigMedia',
   },
-  plugins: ["gatsby-plugin-sass"],
+  plugins: [
+    'gatsby-plugin-sass',
+  ],
 };
