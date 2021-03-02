@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Main = props => {
+const Test = props => {
   console.log(props);
   return (
     <div>
-      Hello, I'm home page
+      Test
     </div>
   );
 };
 
-export default Main;
+export default Test;
