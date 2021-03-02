@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import { StaticImage } from "gatsby-plugin-image"
+import Block from '../components/block';
 
 const Main = ({
   data: {
@@ -10,15 +12,34 @@ const Main = ({
   const [language, setLanguage] = useState('en');
   const [backgroundColor, setBackgroundColor] = useState('#fff');
   const [isMonochrome, setIsMonochrome] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  console.log('companyValues: ', companyValues);
-  console.log('offices: ', offices);
+  const [isUpsideDown, setIsUpsideDown] = useState(false);
 
   return (
-    <div>
-      Hello, I'm main page
-    </div>
+    <main>
+      <div>
+        {companyValues.map(i => (
+          <Block
+            key={i.id}
+            primary={i[language].title}
+            secondary={i[language].description}
+          />
+        ))}
+        <StaticImage
+          src="../images/gig-logo.png"
+          alt="Gaming Innovation Group company logo"
+        />
+      </div>
+      <div>
+        {offices.map(i => (
+          <Block
+            key={i.id}
+            primary={i.country}
+            secondary={i.address}
+            small
+          />
+        ))}
+      </div>
+    </main>
   );
 };
 
@@ -27,11 +48,13 @@ export const query = graphql`
     allCompanyValue {
       nodes {
         en {
-          id
+          description
+          title
         }
         id
         sv {
-          id
+          description
+          title
         }
       }
     }
