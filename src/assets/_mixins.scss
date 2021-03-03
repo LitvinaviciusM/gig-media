@@ -1,0 +1,10 @@
+$screens: (
+  large : ( min-width: 900px ),
+  medium : ( min-width: 600px ),
+);
+
+@mixin respond-to($layout) {
+  @media #{inspect(map-get($screens, $layout))} {
+    @content;
+  }
+}

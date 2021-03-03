@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
-import { StaticImage } from "gatsby-plugin-image"
+import Container from '../components/container';
 import Block from '../components/block';
 
 const Main = ({
@@ -16,7 +16,7 @@ const Main = ({
 
   return (
     <main>
-      <div>
+      <Container variant="top">
         {companyValues.map(i => (
           <Block
             key={i.id}
@@ -24,12 +24,8 @@ const Main = ({
             secondary={i[language].description}
           />
         ))}
-        <StaticImage
-          src="../images/gig-logo.png"
-          alt="Gaming Innovation Group company logo"
-        />
-      </div>
-      <div>
+      </Container>
+      <Container variant="bottom">
         {offices.map(i => (
           <Block
             key={i.id}
@@ -38,7 +34,7 @@ const Main = ({
             small
           />
         ))}
-      </div>
+      </Container>
     </main>
   );
 };

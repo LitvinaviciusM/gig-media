@@ -3,7 +3,12 @@ module.exports = {
     title: 'GigMedia',
   },
   plugins: [
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        additionalData: `@import "${__dirname}/src/assets/mixins";`,
+      }
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
   ],

@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  gap: 1px 1px;
+  margin-bottom: 1px;
+
+  &--top {
+    grid-template-rows: repeat(6, calc(100vh / 3));
+    grid-template-columns: 1fr;
+
+    @include respond-to(medium) {
+      grid-template-rows: repeat(3, calc(100vh / 3));
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(large) {
+      grid-template-rows: repeat(2, calc(100vh / 3));
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &--bottom {
+    grid-template-rows: repeat(5, calc(100vh / 3));
+    grid-template-columns: 1fr;
+
+    @include respond-to(medium) {
+      grid-template-rows: repeat(3, calc(100vh / 3));
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(large) {
+      grid-template-rows: repeat(1, calc(100vh / 3));
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}

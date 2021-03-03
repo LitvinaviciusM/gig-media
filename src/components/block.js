@@ -7,14 +7,14 @@ const Block = ({
   secondary,
   small,
 }) => (
-  <div className={cn('block', { 'block--small': small })}>
-    <div className="block__primary">
+  <article className={cn('block', { 'block--small': small })}>
+    <h2>
       {primary}
-    </div>
-    <div className="block__secondary">
+    </h2>
+    <p>
       {secondary}
-    </div>
-  </div>
+    </p>
+  </article>
 );
 
 export default Block;
