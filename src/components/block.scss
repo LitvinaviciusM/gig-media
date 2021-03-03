@@ -12,4 +12,29 @@
   p {
     margin-bottom: auto;
   }
+
+  .container--top & {
+    &:last-of-type {
+      @include respond-to(medium) {
+        grid-column: 1 / 3;
+      }
+
+      @include respond-to(large) {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+      }
+    }
+  }
+
+  .container--bottom & {
+    &:first-child {
+      @include respond-to(medium) {
+        grid-column: 1 / 3;
+      }
+
+      @include respond-to(large) {
+        grid-column: 1 / 2;
+      }
+    }
+  }
 }

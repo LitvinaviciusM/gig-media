@@ -9,7 +9,5 @@ module.exports = {
         additionalData: `@import "${__dirname}/src/assets/mixins";`,
       }
     },
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
   ],
 };

@@ -1,18 +1,16 @@
 import React from 'react';
-import cn from 'classnames';
 import './block.scss';
 
 const Block = ({
-  primary,
-  secondary,
-  small,
+  title,
+  text,
 }) => (
-  <article className={cn('block', { 'block--small': small })}>
+  <article className="block">
     <h2>
-      {primary}
+      {title}
     </h2>
     <p>
-      {secondary}
+      {text}
     </p>
   </article>
 );

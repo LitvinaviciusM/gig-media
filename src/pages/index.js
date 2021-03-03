@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import Container from '../components/container';
 import Block from '../components/block';
+import Logo from '../components/logo';
 
 const Main = ({
   data: {
@@ -10,9 +11,9 @@ const Main = ({
   },
 }) => {
   const [language, setLanguage] = useState('en');
-  const [backgroundColor, setBackgroundColor] = useState('#fff');
-  const [isMonochrome, setIsMonochrome] = useState(false);
-  const [isUpsideDown, setIsUpsideDown] = useState(false);
+  // const [backgroundColor, setBackgroundColor] = useState('#fff');
+  // const [isMonochrome, setIsMonochrome] = useState(false);
+  // const [isUpsideDown, setIsUpsideDown] = useState(false);
 
   return (
     <main>
@@ -20,18 +21,18 @@ const Main = ({
         {companyValues.map(i => (
           <Block
             key={i.id}
-            primary={i[language].title}
-            secondary={i[language].description}
+            title={i[language].title}
+            text={i[language].description}
           />
         ))}
+        <Logo />
       </Container>
       <Container variant="bottom">
         {offices.map(i => (
           <Block
             key={i.id}
-            primary={i.country}
-            secondary={i.address}
-            small
+            title={i.country}
+            text={i.address}
           />
         ))}
       </Container>
