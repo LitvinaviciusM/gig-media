@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Container from '../components/container';
 import Block from '../components/block';
 import Logo from '../components/logo';
+import Menu from '../components/menu';
 
 const Main = ({
   data: {
@@ -10,13 +11,23 @@ const Main = ({
     allOffice: { nodes: offices },
   },
 }) => {
+  // TODO
   const [language, setLanguage] = useState('en');
-  // const [backgroundColor, setBackgroundColor] = useState('#fff');
-  // const [isMonochrome, setIsMonochrome] = useState(false);
-  // const [isUpsideDown, setIsUpsideDown] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState();
+  const [isMonochrome, setIsMonochrome] = useState(false);
+  const [isUpsideDown, setIsUpsideDown] = useState(false);
 
   return (
     <main>
+      <Menu
+        language={language}
+        setLanguage={setLanguage}
+        setBackgroundColor={setBackgroundColor}
+        isMonochrome={isMonochrome}
+        setIsMonochrome={setIsMonochrome}
+        isUpsideDown={isUpsideDown}
+        setIsUpsideDown={setIsUpsideDown}
+      />
       <Container variant="top">
         {companyValues.map(i => (
           <Block

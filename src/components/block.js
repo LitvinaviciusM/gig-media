@@ -6,9 +6,9 @@ const Block = ({
   text,
 }) => (
   <article className="block">
-    <h2>
+    <h1>
       {title}
-    </h2>
+    </h1>
     <p>
       {text}
     </p>
