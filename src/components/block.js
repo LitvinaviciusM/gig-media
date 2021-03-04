@@ -3,7 +3,7 @@ import cn from 'classnames';
 import './block.scss';
 
 const Block = ({
-  randomMeter,
+  randomCounter,
   isMonochrome,
   isUpsideDown,
   title,
@@ -12,12 +12,13 @@ const Block = ({
   const [backgroundColor, setBackgroundColorColor] = useState();
 
   useEffect(() => {
-    if (!randomMeter) return;
-    const totalRGB = 16777215; // total possible RGB combinations
-    const blockHash = Math.random(); // Unique hash per block
-    const hash = blockHash * totalRGB; // Unique hash per block and session
-    setBackgroundColorColor('#' + parseInt(hash, 10).toString(16)); // Format hex color and set value
-  }, [randomMeter]);
+    if (randomCounter) {
+      const totalRGB = 16777215; // total possible RGB combinations
+      const blockHash = Math.random(); // Unique hash per block
+      const hash = blockHash * totalRGB;
+      setBackgroundColorColor('#' + parseInt(hash, 10).toString(16)); // Format hex color and set value
+    }
+  }, [randomCounter]);
 
   return (
     <article

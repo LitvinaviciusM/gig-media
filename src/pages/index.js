@@ -12,7 +12,7 @@ const Main = ({
   },
 }) => {
   const [language, setLanguage] = useState('en');
-  const [randomMeter, setRandomMeter] = useState(0);
+  const [randomCounter, setRandomCounter] = useState(0);
   const [isMonochrome, setIsMonochrome] = useState(false);
   const [isUpsideDown, setIsUpsideDown] = useState(false);
 
@@ -20,13 +20,11 @@ const Main = ({
     <main>
       <Menu
         language={language}
-        setLanguage={setLanguage}
-        randomMeter={randomMeter}
-        setRandomMeter={setRandomMeter}
         isMonochrome={isMonochrome}
-        setIsMonochrome={setIsMonochrome}
-        isUpsideDown={isUpsideDown}
-        setIsUpsideDown={setIsUpsideDown}
+        onChangeLanguage={val => setLanguage(val)}
+        onChangeBackground={() => setRandomCounter(randomCounter + 1)}
+        onChangeMonochrome={() => setIsMonochrome(!isMonochrome)}
+        onRotateText={() => setIsUpsideDown(!isUpsideDown)}
       />
       <Container variant="top">
         {companyValues.map(i => (
@@ -34,7 +32,7 @@ const Main = ({
             key={i.id}
             title={i[language].title}
             text={i[language].description}
-            randomMeter={randomMeter}
+            randomCounter={randomCounter}
             isMonochrome={isMonochrome}
             isUpsideDown={isUpsideDown}
           />
@@ -47,7 +45,7 @@ const Main = ({
             key={i.id}
             title={i.country}
             text={i.address}
-            randomMeter={randomMeter}
+            randomCounter={randomCounter}
             isMonochrome={isMonochrome}
             isUpsideDown={isUpsideDown}
           />

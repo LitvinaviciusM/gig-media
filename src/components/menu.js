@@ -4,39 +4,37 @@ import './menu.scss';
 
 const Menu = ({
   language,
-  setLanguage,
-  randomMeter,
-  setRandomMeter,
   isMonochrome,
-  setIsMonochrome,
-  isUpsideDown,
-  setIsUpsideDown,
+  onChangeLanguage,
+  onChangeBackground,
+  onChangeMonochrome,
+  onRotateText,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {isOpen && (
         <>
-          <div className="menu__overlay" onClick={() => setIsOpen(false)} />
+          <div className="menu__overlay" onClick={() => setIsOpen(false)} aria-hidden="true" />
           <ul className="menu__popup">
             <li>
               <label htmlFor="language">Select language</label>
-              <select value={language} id="language" onChange={e => setLanguage(e.target.value)}>
+              <select value={language} id="language" onBlur={e => onChangeLanguage(e.target.value)} onChange={e => onChangeLanguage(e.target.value)}>
                 <option value="en">English</option>
                 <option value="sv">Swedish</option>
               </select>
             </li>
             <li>
-              <button type="button" onClick={() => setRandomMeter(randomMeter + 1)}>
+              <button type="button" onClick={onChangeBackground}>
                 Change BG color
               </button>
             </li>
             <li>
               <label htmlFor="monochrome">Set monochrome</label>
-              <input type="checkbox" id="monochrome" checked={isMonochrome} onChange={() => setIsMonochrome(!isMonochrome)} />
+              <input type="checkbox" id="monochrome" checked={isMonochrome} onChange={onChangeMonochrome} />
             </li>
             <li>
-              <button type="button" onClick={() => setIsUpsideDown(!isUpsideDown)}>
+              <button type="button" onClick={onRotateText}>
                 Rotate text
               </button>
             </li>
