@@ -11,9 +11,8 @@ const Main = ({
     allOffice: { nodes: offices },
   },
 }) => {
-  // TODO
   const [language, setLanguage] = useState('en');
-  const [backgroundColor, setBackgroundColor] = useState();
+  const [randomMeter, setRandomMeter] = useState(0);
   const [isMonochrome, setIsMonochrome] = useState(false);
   const [isUpsideDown, setIsUpsideDown] = useState(false);
 
@@ -22,7 +21,8 @@ const Main = ({
       <Menu
         language={language}
         setLanguage={setLanguage}
-        setBackgroundColor={setBackgroundColor}
+        randomMeter={randomMeter}
+        setRandomMeter={setRandomMeter}
         isMonochrome={isMonochrome}
         setIsMonochrome={setIsMonochrome}
         isUpsideDown={isUpsideDown}
@@ -34,6 +34,9 @@ const Main = ({
             key={i.id}
             title={i[language].title}
             text={i[language].description}
+            randomMeter={randomMeter}
+            isMonochrome={isMonochrome}
+            isUpsideDown={isUpsideDown}
           />
         ))}
         <Logo />
@@ -44,6 +47,9 @@ const Main = ({
             key={i.id}
             title={i.country}
             text={i.address}
+            randomMeter={randomMeter}
+            isMonochrome={isMonochrome}
+            isUpsideDown={isUpsideDown}
           />
         ))}
       </Container>

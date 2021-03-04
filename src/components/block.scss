@@ -1,9 +1,13 @@
 .block {
-  border: 1px solid black;
+  border: 1px solid #000;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   text-align: center;
+
+  h1, p {
+    transform: rotateZ(0deg);
+  }
 
   h1 {
     margin-top: auto;
@@ -11,6 +15,16 @@
 
   p {
     margin-bottom: auto;
+  }
+
+  &--monochrome {
+    filter: grayscale(100%);
+  };
+
+  &--upsidedown {
+    h1, p {
+      transform: rotateZ(180deg);
+    }
   }
 
   .container--top & {
