@@ -1,0 +1,14 @@
+$distance: 2em;
+
+@keyframes fadeFromRight {
+  0%,
+  50% {
+    transform: translate3d($distance, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

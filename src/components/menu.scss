@@ -19,14 +19,20 @@
   }
 
   &__popup {
-    background-color: $c-white;
+    animation: fadeFromRight .3s;
+    background-color: $c-black;
     border: 1px solid #000;
     border-radius: 30px;
+    color: $c-white;
     padding: 2em 1em 2em 2em;
     position: fixed;
     top: 1em;
     right: 1em;
     width: 300px;
     z-index: 1;
+
+    li {
+      margin-bottom: 1em;
+    }
   }
 }

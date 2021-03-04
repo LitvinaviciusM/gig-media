@@ -19,6 +19,7 @@ const Menu = ({
           <ul className="menu__popup">
             <li>
               <label htmlFor="language">Select language</label>
+              &nbsp;
               <select value={language} id="language" onBlur={e => onChangeLanguage(e.target.value)} onChange={e => onChangeLanguage(e.target.value)}>
                 <option value="en">English</option>
                 <option value="sv">Swedish</option>
@@ -31,6 +32,7 @@ const Menu = ({
             </li>
             <li>
               <label htmlFor="monochrome">Set monochrome</label>
+              &nbsp;
               <input type="checkbox" id="monochrome" checked={isMonochrome} onChange={onChangeMonochrome} />
             </li>
             <li>

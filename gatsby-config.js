@@ -7,8 +7,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         additionalData: `
-          @import "${__dirname}/src/assets/mixins";
-          @import "${__dirname}/src/assets/colors";
+          @import "${__dirname}/src/assets/main";
         `,
       }
     },
